@@ -1,0 +1,55 @@
+@use "sass:map";
+@use "variables";
+
+@mixin mq($breakpoint) {
+  $size: map.get(variables.$breakpoints, $breakpoint);
+  @if ($size) {
+    @media #{$size} {
+      @content;
+    }
+  } @else {
+    @error '"#{$breakpoint}" -Nie rozpoznaję tej wielkości';
+  }
+}
+
+@mixin pictureAndDescription() {
+  padding: 0.5em 1em;
+  @include mq(xsmall) {
+    padding: 0.6em 1.1em;
+  }
+  @include mq(small) {
+    padding: 0.7em 1.3em;
+  }
+  @include mq(small) {
+    width: 50%;
+  }
+  @include mq(large) {
+    padding: 0.8em 1.5em;
+  }
+  @include mq(xlarge) {
+    padding: 1em 1.9em;
+  }
+}
+@mixin graySection() {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: variables.$gray;
+  color: variables.$white;
+}
+@mixin yellowSection() {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: variables.$yellow;
+  color: variables.$black;
+}
+
+@mixin flexColumn() {
+  @include mq(small) {
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+}

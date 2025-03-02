@@ -1,0 +1,75 @@
+@use 'sass:map';
+// Variables
+$bgcbody: #333;
+$black: black;
+$white: white;
+$yellow: #fdbe34;
+$gray: #637381;
+
+// Breakpoints as simple values for modern Sass
+$breakpoints: (
+  xxsmall: 320px,
+  xsmall: 360px,
+  small: 576px,
+  medium: 768px,
+  large: 992px,
+  xlarge: 1200px,
+  xxlarge: 1439px,
+);
+
+// Mixins for media queries - updated for modern Sass
+@mixin mq($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    $value: map.get($breakpoints, $breakpoint);
+    @media (min-width: $value) {
+      @content;
+    }
+  } @else {
+    @error '"#{$breakpoint}" - Nie rozpoznaję tej wielkości';
+  }
+}
+
+// Mixins for section styles
+@mixin pictureAndDescription() {
+  padding: 0.5em 1em;
+  @include mq(xsmall) {
+    padding: 0.6em 1.1em;
+  }
+  @include mq(small) {
+    padding: 0.7em 1.3em;
+  }
+  @include mq(small) {
+    width: 50%;
+  }
+  @include mq(large) {
+    padding: 0.8em 1.5em;
+  }
+  @include mq(xlarge) {
+    padding: 1em 1.9em;
+  }
+}
+
+@mixin graySection() {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $gray;
+  color: $white;
+}
+
+@mixin yellowSection() {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $yellow;
+  color: $black;
+}
+
+@mixin flexColumn() {
+  @include mq(small) {
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+}

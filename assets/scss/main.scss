@@ -1,0 +1,157 @@
+// Import variables
+@use 'variables' as *;
+
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:400,700,900&display=swap&subset=latin-ext');
+
+// Base styles
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 1.8rem;
+  font-family: 'Lato', sans-serif !important;
+  background-color: $bgcbody;
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+    color: grey;
+  }
+}
+
+p,
+li,
+.readMore {
+  font-size: 1.7rem;
+  padding: 0.6rem;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  word-wrap: break-word;
+
+  @include mq(xsmall) {
+    padding: 0.9rem;
+  }
+  @include mq(small) {
+    padding: 0.9rem;
+  }
+  @include mq(medium) {
+    padding: 0.9rem;
+  }
+  @include mq(large) {
+    padding: 0.7rem;
+  }
+  @include mq(xlarge) {
+    padding: 0.7rem;
+    font-size: 1.8rem;
+  }
+  @include mq(xxlarge) {
+    padding: 0.7rem;
+    font-size: 1.9rem;
+  }
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0.7rem;
+  margin-top: 1.3rem;
+  text-align: center;
+
+  @include mq(xxsmall) {
+    padding: 0.9rem;
+  }
+  @include mq(xsmall) {
+    padding: 1.1rem;
+  }
+  @include mq(small) {
+    padding: 1.3rem;
+  }
+  @include mq(medium) {
+    padding: 1.5rem;
+    font-size: 2.2rem;
+  }
+  @include mq(large) {
+    padding: 1.7rem;
+    font-size: 2.4rem;
+  }
+  @include mq(xlarge) {
+    padding: 1.3rem;
+    font-size: 2.6rem;
+  }
+  @include mq(xxlarge) {
+    padding: 1.5rem;
+    font-size: 2.6rem;
+  }
+}
+
+h2,
+h3 {
+  font-size: 0.9em;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0.4em;
+  margin-top: 1.3rem;
+
+  @include mq(medium) {
+    padding: 0.6em;
+    font-size: 1.3em;
+  }
+  @include mq(large) {
+    padding: 0.7em;
+    font-size: 1.4em;
+  }
+  @include mq(xxlarge) {
+    padding: 0.9em;
+    font-size: 1.6em;
+  }
+}
+
+h4 {
+  font-size: 0.8em;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0.4em;
+
+  @include mq(medium) {
+    padding: 0.6em;
+    font-size: 1.1em;
+  }
+  @include mq(large) {
+    padding: 0.7em;
+    font-size: 1.2em;
+  }
+  @include mq(xxlarge) {
+    padding: 0.9em;
+    font-size: 1.4em;
+  }
+}
+
+#regulations {
+  a:hover {
+    color: black;
+  }
+}
+.nuxt-icon--fill,
+.nuxt-icon--fill * {
+  fill: revert-layer !important;
+}
