@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /Regulamin.odt
+Allow: /
+Sitemap: https://kama-przydworz.pl/sitemap.xml
