@@ -14,9 +14,10 @@
 
       <div v-if="modal" class="content__picture--modal" :style="modalStyle">
         <NuxtImg
-          :src="`/img/${path}fullSize/${img}`"
+          :src="`/img/fullSize/${path}${img}`"
           :alt="alt"
           format="webp"
+          loading="lazy"
           sizes="sm:90vw md:90vw lg:90vw"
         />
         <div class="x" @click="modalShowHide()">X</div>

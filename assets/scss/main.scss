@@ -8,30 +8,30 @@
 *,
 *::after,
 *::before {
-  box-sizing: border-box;
+  box-sizing: border-box !important;
   margin: 0;
   padding: 0;
 }
 
 html {
-  font-size: 10px;
+  font-size: 10px !important;
 }
 
 body {
-  font-size: 1.8rem;
+  font-size: 1.8rem !important;
   font-family: 'Lato', sans-serif !important;
-  background-color: $bgcbody;
-  width: 100vw;
-  min-height: 100vh;
-  overflow-x: hidden;
+  background-color: $bgcbody !important;
+  width: 100vw !important;
+  min-height: 100vh !important;
+  overflow-x: hidden !important;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+  color: inherit !important;
+  text-decoration: none !important;
   &:hover {
-    text-decoration: none;
-    color: grey;
+    text-decoration: none !important;
+    color: grey !important;
   }
 }
 

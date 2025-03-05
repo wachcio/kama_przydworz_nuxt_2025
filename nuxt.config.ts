@@ -1,6 +1,10 @@
 // nuxt.config.ts
 export default defineNuxtConfig({
+  ssr: true, // Zmiana z false na true dla lepszej obsługi generowania statycznego
+
   app: {
+    baseURL: '/',
+    buildAssetsDir: '/_nuxt/', // Odkomentowane
     head: {
       htmlAttrs: {
         lang: 'pl',
@@ -42,11 +46,18 @@ export default defineNuxtConfig({
     },
   },
 
+  // Jawne zdefiniowanie katalogów
+  dir: {
+    public: 'public',
+    assets: 'assets',
+  },
+
   css: [
     '~/assets/scss/_reset.scss',
     'bootstrap/dist/css/bootstrap.min.css',
     '~/assets/scss/main.scss',
   ],
+
   modules: [
     '@nuxtjs/robots',
     '@pinia/nuxt',
@@ -54,15 +65,6 @@ export default defineNuxtConfig({
     'nuxt-icon',
     'nuxt-svgo',
   ],
-
-  // nitro: {
-  //   routeRules:
-  //     process.env.NODE_ENV === 'production'
-  //       ? {
-  //           '/**': { redirect: { to: 'https://$host$uri', statusCode: 301 } },
-  //         }
-  //       : {},
-  // },
 
   robots: {
     rules: {
@@ -82,6 +84,8 @@ export default defineNuxtConfig({
       },
     },
   },
+
+  // Poprawiona konfiguracja modułu obrazów
   image: {
     quality: 80,
     format: ['webp', 'jpg', 'png'],
@@ -93,7 +97,31 @@ export default defineNuxtConfig({
       xl: 1280,
       xxl: 1536,
     },
+    dir: 'public',
+    staticImages: {
+      dir: 'public/img', // Katalog z oryginalnymi obrazami
+      include: ['**/*.{jpg,jpeg,png,svg}'], // Wzorce plików do przetworzenia
+    },
   },
 
-  compatibilityDate: '2025-03-02',
+  // Poprawiona konfiguracja nitro
+  nitro: {
+    prerender: {
+      crawlLinks: true, // Włączone automatyczne odkrywanie linków
+      routes: ['/'], // Strona główna jako punkt wyjścia
+    },
+    output: {
+      publicDir: 'dist',
+    },
+    // Dodane reguły dla statycznych zasobów
+    routeRules: {
+      // Te reguły są nadal potrzebne
+      '/img/**': { static: true },
+      '/_nuxt/**': { static: true },
+      '/_ipx/**': { static: true }, // Dodaj obsługę dla ścieżek _ipx
+    },
+  },
+
+  // Usunięta problematyczna data kompatybilności
+  // compatibilityDate: '2025-03-02',
 })
