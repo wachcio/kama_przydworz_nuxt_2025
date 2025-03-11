@@ -11,17 +11,23 @@
           sizes="sm:100vw md:50vw lg:50vw"
         />
       </figure>
-
-      <div v-if="modal" class="content__picture--modal" :style="modalStyle">
+      <figure
+        v-show="modal"
+        class="content__picture--modal"
+        :style="modalStyle"
+      >
         <NuxtImg
-          :src="`/img/fullSize/${path}${img}`"
+          :src="`/img/${path}fullSize/${img}`"
           :alt="alt"
           format="webp"
           loading="lazy"
           sizes="sm:90vw md:90vw lg:90vw"
+          @click="modalShowHide()"
         />
+        <!-- <img :src="`/img/fullSize/${path}${img}`" :alt="alt" /> -->
+
         <div class="x" @click="modalShowHide()">X</div>
-      </div>
+      </figure>
     </div>
     <div class="content__description">
       <p v-html="parseDescription" />

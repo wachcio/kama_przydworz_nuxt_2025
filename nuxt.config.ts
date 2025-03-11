@@ -1,4 +1,3 @@
-// nuxt.config.ts
 export default defineNuxtConfig({
   ssr: true, // Zmiana z false na true dla lepszej obsługi generowania statycznego
 
@@ -98,10 +97,10 @@ export default defineNuxtConfig({
       xxl: 1536,
     },
     dir: 'public',
-    staticImages: {
-      dir: 'public/img', // Katalog z oryginalnymi obrazami
-      include: ['**/*.{jpg,jpeg,png,svg}'], // Wzorce plików do przetworzenia
-    },
+    // staticImages: {
+    //   dir: 'public/img', // Katalog z oryginalnymi obrazami
+    //   include: ['**/*.{jpg,jpeg,png,svg}'], // Wzorce plików do przetworzenia
+    // },
   },
 
   // Poprawiona konfiguracja nitro
@@ -116,12 +115,12 @@ export default defineNuxtConfig({
     // Dodane reguły dla statycznych zasobów
     routeRules: {
       // Te reguły są nadal potrzebne
-      '/img/**': { static: true },
+      // '/img/**': { static: true },
       '/_nuxt/**': { static: true },
       '/_ipx/**': { static: true }, // Dodaj obsługę dla ścieżek _ipx
     },
   },
 
   // Usunięta problematyczna data kompatybilności
-  // compatibilityDate: '2025-03-02',
+  compatibilityDate: '2025-03-11',
 })

@@ -1,5 +1,5 @@
-@use "sass:map";
-@use "variables";
+@use 'sass:map';
+@use 'variables';
 
 @mixin mq($breakpoint) {
   $size: map.get(variables.$breakpoints, $breakpoint);
@@ -16,12 +16,13 @@
   padding: 0.5em 1em;
   @include mq(xsmall) {
     padding: 0.6em 1.1em;
+    width: 100%;
   }
   @include mq(small) {
     padding: 0.7em 1.3em;
   }
   @include mq(small) {
-    width: 50%;
+    width: 100%;
   }
   @include mq(large) {
     padding: 0.8em 1.5em;

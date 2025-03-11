@@ -32,14 +32,19 @@ $breakpoints: (
 // Mixins for section styles
 @mixin pictureAndDescription() {
   padding: 0.5em 1em;
+  @include mq(xxsmall) {
+    padding: 0.6em 1.1em;
+    width: 100%;
+  }
   @include mq(xsmall) {
     padding: 0.6em 1.1em;
+    width: 100%;
   }
   @include mq(small) {
     padding: 0.7em 1.3em;
   }
   @include mq(small) {
-    width: 50%;
+    width: 100%;
   }
   @include mq(large) {
     padding: 0.8em 1.5em;
